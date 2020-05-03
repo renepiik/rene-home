@@ -59,7 +59,7 @@ export default {
 
 :root {
 	--background-color: #fffffe;
-	--primary-color: rgb(255, 142, 60);
+	--primary-color: #ff8e3c;
 	--secondary-color: #eff0f3;
 	--tertiary-color: #d9376e;
 	--big-text-color: #0d0d0d;
