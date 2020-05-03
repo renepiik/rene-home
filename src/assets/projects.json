@@ -1,0 +1,25 @@
+{
+    "projects": [
+        {
+            "title": "reaalkooli ajalehe veebileht",
+            "image_src": "",
+            "desc": "Veebirakendus ja sisuhaldussüsteem Tallinna Reaalkooli ajalehe Reaali Poiss jaoks.",
+            "techs": [
+                "jQuery",
+                "MySQL",
+                "PHP"
+            ],
+            "link": "https://reaalipoiss.piik.eu/"
+        },
+        {
+            "title": "isiklik raamatukogu",
+            "image_src": "",
+            "desc": "Java rakendus isikliku raamatukogu haldamiseks. Kasutada saab nii terminali kui ka graafilist liidest.",
+            "techs": [
+                "Java",
+                "JavaFX"
+            ],
+            "link": "https://github.com/renepiik/Raamatukogu"
+        }
+    ]
+}
