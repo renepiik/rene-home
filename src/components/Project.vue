@@ -49,16 +49,20 @@ export default {
 
 <style scoped>
 .project-card {
+    --shadow-strong:
+			0 0px 8px rgba(154,160,185,.2), 
+			0 0px 16px rgba(166,173,201,.4),
+			0 0px 24px rgba(166,173,201,.4);
+    
     border-radius: 4px;
     padding: 1rem;
-    transition: all 0.3s;
+    transition: all 0.2s;
     box-shadow: var(--shadow-light);
     margin: 2rem 0;
 }
 
 .project-card:hover {
     box-shadow: var(--shadow-strong);
-    transition: all 0.3s;
     cursor: pointer;
 }
 
