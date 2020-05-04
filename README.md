@@ -1,3 +1,5 @@
 # rene-home
 
-Minu koduleht
+Minu koduleht, ehitatud Vue CLI abil. 
+
+:computer: [rene.piik.eu](https://rene.piik.eu)
