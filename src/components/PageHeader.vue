@@ -1,60 +1,55 @@
 <template>
-    <header class="page-header">
-        <span class="header-hero">RENÉ PIIK</span>
-        <div class="header-buttons">
-            <HeaderBtn 
-                @clicked="scrollToProjects"
-                desc="PROJEKTID"></HeaderBtn>
-            <HeaderBtn 
-                @clicked="scrollToAbout"
-                desc="MINUST"></HeaderBtn>
-        </div>
-    </header>
+  <header class="page-header">
+    <span class="header-hero">RENÉ PIIK</span>
+    <div class="header-buttons">
+      <HeaderBtn @clicked="scrollToProjects" desc="PROJEKTID"></HeaderBtn>
+      <HeaderBtn @clicked="scrollToAbout" desc="MINUST"></HeaderBtn>
+      <HeaderBtn desc="BLOGI"></HeaderBtn>
+    </div>
+  </header>
 </template>
 
 <script>
-import HeaderBtn from './HeaderBtn.vue'
+import HeaderBtn from "./HeaderBtn.vue";
 
 export default {
-    name: 'PageHeader',
-    components: {
-		HeaderBtn
+  name: "PageHeader",
+  components: {
+    HeaderBtn
+  },
+  methods: {
+    scrollToProjects: function() {
+      document.getElementById("projects-section").scrollIntoView();
     },
-    methods: {
-        scrollToProjects: function() {
-            document.getElementById('projects-section').scrollIntoView()
-        },
-        scrollToAbout: function() {
-            document.getElementById('about-section').scrollIntoView()
-        }
+    scrollToAbout: function() {
+      document.getElementById("about-section").scrollIntoView();
     }
-}
+  }
+};
 </script>
 
 <style scoped>
 .page-header {
-    width: 100%;
+  width: 100%;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .header-hero {
-    font-family: 'PT Mono', monospace;
+  font-family: "PT Mono", monospace;
 }
 
 .header-buttons {
-    --shadow-strong:
-        0 0px 8px rgba(255, 142, 60,.05), 
-        0 0px 16px rgba(255, 142, 60,.2),
-        0 0px 24px rgba(255, 142, 60,.2);
-    
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
+  --shadow-strong: 0 0px 8px rgba(255, 142, 60, 0.05),
+    0 0px 16px rgba(255, 142, 60, 0.2), 0 0px 24px rgba(255, 142, 60, 0.2);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 </style>
