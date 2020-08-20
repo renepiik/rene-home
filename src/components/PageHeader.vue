@@ -4,7 +4,7 @@
     <div class="header-buttons">
       <HeaderBtn @clicked="scrollToProjects" desc="PROJEKTID"></HeaderBtn>
       <HeaderBtn @clicked="scrollToAbout" desc="MINUST"></HeaderBtn>
-      <HeaderBtn desc="BLOGI"></HeaderBtn>
+      <HeaderBtn @clicked="openBlog" desc="BLOGI"></HeaderBtn>
     </div>
   </header>
 </template>
@@ -23,7 +23,10 @@ export default {
     },
     scrollToAbout: function() {
       document.getElementById("about-section").scrollIntoView();
-    }
+    },
+		openBlog() {
+			window.open('https://hobimatemaatik.bearblog.dev');
+		}
   }
 };
 </script>
