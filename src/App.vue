@@ -1,16 +1,15 @@
 <template>
   <div id="app">
     <PageHeader></PageHeader>
-    <AboutSection></AboutSection>
-    <ProjectsSection></ProjectsSection>
+		<div class="app-section">
+			<router-view></router-view>
+		</div>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
 import PageHeader from "./components/PageHeader";
-import ProjectsSection from "./components/ProjectsSection";
-import AboutSection from "./components/AboutSection";
 import Footer from "./components/Footer";
 //import ImageSection from "./components/ImageSection";
 
@@ -18,11 +17,14 @@ export default {
   name: "App",
   components: {
     PageHeader,
-    ProjectsSection,
-    AboutSection,
     Footer
     // ImageSection
-  }
+	},
+	methods: {
+		goBack() {
+			window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/');
+		}
+	}
 };
 </script>
 
@@ -76,6 +78,7 @@ export default {
   --tertiary-color: #f777a1;
   --big-text-color: #0d0d0d;
   --paragraph-color: #2a2a2a;
+	--link-color: #202b66;
 
   --shadow-light: 0 0px 16px rgba(166, 173, 201, 0.2);
   --shadow-strong: 0 0px 8px rgba(154, 160, 185, 0.05),
@@ -86,6 +89,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.app-section {
+	margin: 2rem auto;
+	max-width: 50rem;
 }
 
 html {
@@ -103,10 +111,19 @@ section {
   margin: 0 1rem;
 }
 
-p {
+p, ul, a{
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: var(--paragraph-color);
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+a {
+	color: var(--link-color);
+}
+
+ul {
+	list-style: none;
+	padding: 0;
 }
 
 button {
@@ -132,5 +149,30 @@ button:hover {
 .section-header {
   font-family: "PT Mono", monospace;
   margin-bottom: 1rem;
+}
+
+h1.section-header {
+	position: relative;
+	margin-bottom: 3rem;
+}
+
+h1.section-header::before {
+	position: absolute;
+	left: -1.5rem;
+	top: 1.4rem;
+
+	height: .8rem;
+	width: 10rem;
+
+	transform: skew(-12deg);
+	background: rgba(238,111,87,0.4);
+
+	z-index: -1;
+	content: "";
+}
+
+h2.section-header {
+	margin-bottom: 2rem;
+	margin-top: 2rem;
 }
 </style>

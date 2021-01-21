@@ -1,24 +1,19 @@
 <template>
-  <button class="header-btn" @click="scrollTo">{{ desc }}</button>
+  <button class="header-btn">{{ desc }}</button>
 </template>
 
 <script>
 export default {
   name: "HeaderBtn",
   props: {
-    desc: String,
-    fun: Function
+    desc: String
   },
-  methods: {
-    scrollTo() {
-      this.$emit("clicked");
-    }
-  }
 };
 </script>
 
 <style>
 button {
   cursor: pointer;
+	text-decoration: none;
 }
 </style>

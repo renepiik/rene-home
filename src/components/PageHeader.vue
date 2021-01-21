@@ -1,10 +1,17 @@
 <template>
   <header class="page-header">
-    <span class="header-hero">RENÉ PIIK</span>
+    <span class="header-hero">
+			<router-link to='/'>
+				<HeaderBtn desc="🏠 RENÉ PIIK"></HeaderBtn>
+			</router-link>
+		</span>
     <div class="header-buttons">
-      <HeaderBtn @clicked="scrollToProjects" desc="PROJEKTID"></HeaderBtn>
-      <HeaderBtn @clicked="scrollToAbout" desc="MINUST"></HeaderBtn>
-      <HeaderBtn @clicked="openBlog" desc="BLOGI"></HeaderBtn>
+			<router-link to='/projects'>
+				<HeaderBtn desc="👩‍💻 PROJEKTID"></HeaderBtn>
+			</router-link>
+			<router-link to='/notes'>
+				<HeaderBtn desc="📒 MÄRKMED"></HeaderBtn>
+			</router-link>
     </div>
   </header>
 </template>
@@ -17,21 +24,14 @@ export default {
   components: {
     HeaderBtn
   },
-  methods: {
-    scrollToProjects: function() {
-      document.getElementById("projects-section").scrollIntoView();
-    },
-    scrollToAbout: function() {
-      document.getElementById("about-section").scrollIntoView();
-    },
-		openBlog() {
-			window.open('https://hobimatemaatik.bearblog.dev');
-		}
-  }
 };
 </script>
 
 <style scoped>
+a {
+	text-decoration: none;
+}
+
 .page-header {
   width: 100%;
 

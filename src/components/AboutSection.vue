@@ -1,10 +1,8 @@
 <template>
   <section id="about-section">
     <h2 class="section-header">Tere</h2>
-    <p class="about-text">Mina olen René. Õpin praegu Tartu Ülikoolis matemaatikat teoreetilise informaatika kallakuga.</p>
-    <p
-      class="about-text"
-    >Vabal ajal kokkan, pildistan, loen raamatuid ja teen trenni.</p>
+    <p class="about-text">Mina olen René. Õpin praegu Tartu Ülikoolis matemaatikat.</p>
+    <p class="about-text">Vabal ajal kokkan, pildistan, loen raamatuid ja teen trenni.</p>
     <div class="about-buttons">
       <AboutBtn link_class="github-button" title="GitHub" @clicked="openGithub"></AboutBtn>
       <AboutBtn link_class="linkedin-button" title="LinkedIn" @clicked="openLinkedin"></AboutBtn>
@@ -26,7 +24,7 @@ export default {
     },
     openLinkedin() {
       window.open("https://www.linkedin.com/in/ren%C3%A9-piik-b19092162/");
-    }
+		}
   }
 };
 </script>
