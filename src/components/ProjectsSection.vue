@@ -1,8 +1,8 @@
 <template>
   <section id="projects-section">
-    <h2 class="section-header">Projektid</h2>
+    <h2 class="section-header">{{ $t("projects.header") }}</h2>
     <Project
-      v-for="project in projects"
+      v-for="project in $t('projects.projects')"
       :key="project.title"
       :image_src="project.image_src"
       :title="project.title"
@@ -15,21 +15,12 @@
 
 <script>
 import Project from "./Project";
-import ProjectsJSON from "../assets/projects.json";
 
 export default {
   name: "ProjectsSection",
   components: {
     Project
   },
-  data: function() {
-    return {
-      projects: []
-    };
-  },
-  created: function() {
-    this.projects = ProjectsJSON.projects;
-  }
 };
 </script>
 

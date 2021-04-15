@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>René Piik &copy; 2020</p>
+    <p>René Piik &copy; 2021</p>
   </footer>
 </template>
 

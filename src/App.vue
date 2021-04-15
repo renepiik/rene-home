@@ -72,7 +72,7 @@ export default {
 }
 
 :root {
-  --background-color: #fffffe;
+  --background-color: #fdf9f2;
   --primary-color: #ff8e3c;
   --secondary-color: #eff0f3;
   --tertiary-color: #f777a1;
@@ -104,6 +104,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
+  min-height: 100vh;
 }
 
 section {
@@ -154,8 +155,9 @@ button:hover {
 h1.section-header {
 	position: relative;
 	margin-bottom: 3rem;
+  font-size: 2rem;
 }
-
+/*
 h1.section-header::before {
 	position: absolute;
 	left: -1.5rem;
@@ -170,6 +172,7 @@ h1.section-header::before {
 	z-index: -1;
 	content: "";
 }
+*/
 
 h2.section-header {
 	margin-bottom: 2rem;
