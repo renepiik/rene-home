@@ -1,4 +1,9 @@
+import notesdir from "../notesdir";
+
 export default {
+    notFound: {
+        heading: "Seda lehte pole olemas :("
+    },
     nav: {
         projects: "Projektid",
         notes: "Märkmed",
@@ -7,21 +12,37 @@ export default {
     about: {
         header: "Tere",
         body: [
-            "Mina olen René. Õpin praegu Tartu Ülikoolis matemaatika erialal (lõpetada on plaanis 2022. aastal) ning töötan kooli kõrvalt andmeanalüütikuna. Varem olen pidanud ka reporteri ametit (2016 - 2018), töötanud veebiarendajana (2019 - 2020) ja õppeassistendina (2020 - 2021).",
-            "Vabal ajal kokkan, käin loodust pildistamas ja loen raamatuid. 2018. aastal esindasin Eestit rahvusvahelisel MEPil Madridis ning juhtisin Reaalkooli õpilasomavalitsuse tööd. Kirjutan praegu uurimust eesti keele kasutusest matemaatilistes teksides viimase 150 aasta jooksul.",
-            "Mu tegemisi saad jälgida GitHubis või sotsiaalmeedias. Kui Sul on tekkinud mõni küsimus, võid mulle ka meili saata aadressile renepiik@gmail.com."
+            "Olen täiskohaga matemaatikatudeng Tartu Ülikoolis. Olen pidanud reporteri ametit (2016 - 2018), töötanud veebiarendajana (2019 - 2020), õppeassistendina ülikoolis (2020 - 2021) ja andmeanalüütikuna (2021).",
+            "Vabal ajal nokitsen oma kodulehe kallal, loen raamatuid ning löön r/math-is aega parajaks. 2018. aastal esindasin Eestit rahvusvahelisel MEPil Madridis ning juhtisin Reaalkooli õpilasomavalitsuse tööd. Kirjutan praegu uurimust eesti keele kasutusest matemaatilistes teksides viimase 150 aasta jooksul.",
+            "Mu tegemisi saad jälgida GitHubis või siinsamal lehel. Suuremad tegemised lisan projektide alla ning igapäevasemat võid leida märkmete seast.",
+            "Küsimuste korral saab minuga ühendust võtta aadressil renepiik@gmail.com."
         ]
     },
     notes: {
         header: "Märkmed",
         placeholder: "Siin pole veel midagi!",
-        body: [
-            ""
+        links: [
+            {
+                link: "https://github.com/renepiik/funktsionaalanalyys-1",
+                title: "Funktsionaalanalüüs I (eesti keeles)",
+                local: false
+            },
+            ...notesdir
         ]
     },
     projects: {
         header: "Projektid",
         projects: [
+            {
+                "title": "UniTartu Progress",
+                "image_src": "",
+                "desc": "Twitteri bot jälgimaks, kui kaugel on käesolev semester.",
+                "techs": [
+                    "Python",
+                    "AWS EC2"
+                ],
+                "link": "https://twitter.com/unitartu_prgrss"
+            },
             {
                 "title": "reaalkooli ajalehe veebileht",
                 "image_src": "",

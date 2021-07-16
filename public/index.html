@@ -17,12 +17,11 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff8e3c">
 
   <!-- PT mono font -->
-  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap"></noscript>
   <!-- Roboto font -->
-	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-	
-	<!-- KATEX CSS -->
-	<link rel="stylesheet" href="https://unpkg.com/katex@0.12.0/dist/katex.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"></noscript>
 
   <title>René Piik</title>
 </head>
@@ -38,6 +37,22 @@
       const fader = document.getElementById('fader')
     }
     fader.classList.add('fade-out');
+
+    document.addEventListener('click', function(e) {
+      closeMobileNav(e);
+    });
+
+    function closeMobileNav(e) {
+      if (!event.target.classList.contains('nav-buttons') && !event.target.classList.contains('menu-button')) {
+        const navButtons = document.querySelector('.nav-buttons');
+
+        if (navButtons !== null) {
+          if (!navButtons.classList.contains('hidden')) {
+            navButtons.classList.add('hidden')
+          }
+        }
+      }
+    }
   </script>
 
   <noscript>

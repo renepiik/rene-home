@@ -59,6 +59,7 @@ export default {
     transition: all 0.2s;
     box-shadow: var(--shadow-light);
     margin: 2rem 0;
+    max-width: 100vw;
 }
 
 .project-card:hover {
@@ -87,6 +88,8 @@ export default {
     padding-left: 1rem;
     text-decoration: none;
     color: var(--tertiary-color);
+
+    word-break: break-all;
 }
 
 .project-desc {

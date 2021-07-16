@@ -7,3 +7,9 @@ export default {
     name: "NotesPlaceholder",
 }
 </script>
+
+<style scoped>
+#notes-placeholder-svg {
+    max-width: 100%;
+}
+</style>

@@ -1,21 +1,32 @@
 <template>
   <header class="page-header">
     <span class="header-hero">
-			<router-link :to="{ name: 'Home', params: {lang: this.$i18n.locale} }">
-				<HeaderBtn desc="🏠 RENÉ PIIK"></HeaderBtn>
-			</router-link>
+      <router-link @click.native="navButtonPressed" :to="{ name: 'Home', params: {lang: this.$i18n.locale} }">
+        <HeaderBtn v-if="$resize && $mq.above(660)" desc="🏠 RENÉ PIIK"></HeaderBtn>
+        <HeaderBtn v-else desc="🏠"></HeaderBtn>
+      </router-link>
 		</span>
-    <div class="header-buttons">
-			<router-link :to="{ name: 'Projects', params: {lang: this.$i18n.locale} }">
+    <div v-if="$resize && $mq.above(660)" class="header-buttons">
+			<router-link @click.native="navButtonPressed" :to="{ name: 'Projects', params: {lang: this.$i18n.locale} }">
 				<HeaderBtn v-bind:desc='$t("nav.projects")'></HeaderBtn>
 			</router-link>
-			<router-link :to="{ name: 'Notes', params: {lang: this.$i18n.locale} }">
+			<router-link @click.native="navButtonPressed" :to="{ name: 'Notes', params: {lang: this.$i18n.locale} }">
 				<HeaderBtn v-bind:desc='$t("nav.notes")'></HeaderBtn>
 			</router-link>
-      <div id="locale-switch">
-        <button id="et-lang" v-on:click="changeLangToEt">et</button>
-        /
-        <button id="en-lang" class="selected" v-on:click="changeLangToEn">en</button>
+      <theme-toggle-button></theme-toggle-button>
+    </div>
+    <div v-else class="header-buttons">
+      <theme-toggle-button></theme-toggle-button>
+      <button @click="toggleMenu" class="menu-button">
+        |||
+      </button>
+      <div class="nav-buttons hidden">
+        <router-link @click.native="navButtonPressed" :to="{ name: 'Projects', params: {lang: this.$i18n.locale} }">
+          <HeaderBtn v-bind:desc='$t("nav.projects")'></HeaderBtn>
+        </router-link>
+        <router-link @click.native="navButtonPressed" :to="{ name: 'Notes', params: {lang: this.$i18n.locale} }">
+          <HeaderBtn v-bind:desc='$t("nav.notes")'></HeaderBtn>
+        </router-link>
       </div>
     </div>
   </header>
@@ -23,35 +34,32 @@
 
 <script>
 import HeaderBtn from "./HeaderBtn.vue";
+import ThemeToggleButton from './ThemeToggleButton.vue';
 
 export default {
   name: "PageHeader",
   components: {
-    HeaderBtn
+    HeaderBtn,
+    ThemeToggleButton
   },
   methods: {
-    changeLangToEt: function(event) {
-      if (!event.target.classList.contains("selected")) {
-        document.querySelector("#en-lang").classList.remove("selected")
-        event.target.classList.add("selected")
-        this.changeLocale('et')
+    toggleMenu: function() {
+      const classes = document.querySelector('.nav-buttons').classList;
+      if (classes.contains('hidden')) {
+        classes.remove('hidden')
+      }
+      else {
+        classes.add('hidden')
       }
     },
-    changeLangToEn: function(event) {
-      if (!event.target.classList.contains("selected")) {
-        document.querySelector("#et-lang").classList.remove("selected")
-        event.target.classList.add("selected")
-        this.changeLocale('en')
+    navButtonPressed: function() {
+      const navButtons = document.querySelector('.nav-buttons');
+
+      if (navButtons !== null) {
+        if (!navButtons.classList.contains('hidden')) {
+          navButtons.classList.add('hidden')
+        }
       }
-    },
-    changeLocale: function(lang) {
-      const to = this.$router.resolve({
-        params: { lang: lang }
-      });
-
-      this.$i18n.locale = lang;
-
-      this.$router.push(to.location);
     }
   }
 };
@@ -72,6 +80,12 @@ a {
   justify-content: space-around;
 }
 
+@media screen and (max-width: 660px) {
+  .page-header {
+    justify-content: space-between;
+  }
+}
+
 .header-hero {
   font-family: "PT Mono", monospace;
 }
@@ -86,12 +100,22 @@ a {
   align-items: center;
 }
 
-button.selected {
-  background-color: var(--paragraph-color);
-  color: var(--background-color);
+.nav-buttons {
+  opacity: 1;
+  position: fixed;
+  box-shadow: var(--shadow-light);
+  background-color: var(--background-color);
+  top: 4rem;
+  right: 2rem;
+
+  transition: 150ms all ease-in-out;
+  transform: scale(1);
+
+  z-index: 1;
 }
 
-#locale-switch > button {
-  display: inline;
+.hidden {
+  opacity: 0;
+  transform: scale(0);
 }
 </style>
